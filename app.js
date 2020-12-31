@@ -20,8 +20,13 @@ io.on('connection', socket => {
   socket.on('led', data => {
     if (data != led.readSync()) {
       led.writeSync(data);
+      io.emit('led', data);
     }
   });
+
+  socket.on('status', () => {
+    socket.emit('led', led.readSync());
+  })
 });
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
