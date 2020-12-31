@@ -18,8 +18,7 @@
       let status = <%= status %>;
 
       toggle.onclick = () => {
-        status = status ^ 1;
-        socket.emit('led', status);
+        socket.emit('led', status = status ^ 1);
       };
 
       socket.on('led', data => {
