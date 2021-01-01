@@ -1,0 +1,12 @@
+[Unit]
+Description=Pi Smart LED server
+Documentation=https://github.com/js0mmer/pismartled-server
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/pismartled
+ExecStart=/usr/bin/node app.js
+
+[Install]
+WantedBy=multi-user.target
