@@ -3,12 +3,12 @@
 A simple Socket.IO server for interfacing with a pi-connected LED strip. This project also includes a basic web interface to toggle the LEDs which can be expanded upon.
 
 ## Table of Contents
-* [Getting Started](#getting%20started)
+* [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Setup](#setup)
   * [Development](#development)
   * [Production](#production)
-* [Communicating with the socket](#communicating%20with%20the%20socket)
+* [Communicating with the socket](#communicating-with-the-socket)
   * [Examples](#examples)
 
 ## Getting Started
