@@ -15,14 +15,8 @@ A simple Socket.IO server for interfacing with a pi-connected LED strip. This pr
 
 ### Prerequisites
 
-* Node.js
-* Yarn
-
-To install yarn:
-
-```sh
-npm install -g yarn
-```
+* [Node.js](https://nodejs.org/)
+* [Yarn](https://classic.yarnpkg.com/en/docs/install/)
 
 ### Setup
 
@@ -37,10 +31,10 @@ git clone https://github.com/js0mmer/pismartled-server pismartled && cd pismartl
 yarn
 ```
 
-3. Rename .env.example to .env and edit your port numbers with your text editor of choice.  You should have the - end of your LED strip connected to ground and the + end to the GPIO port defined in .env. [Here is a pinout diagram](https://www.raspberrypi.org/documentation/usage/gpio/) for reference. The number you define GPIO_PORT to should be the number that appears on the label `GPIO ##` in the first image, **not** the number within the circle.
+3. Copy .env.example to .env and edit your port numbers with your text editor of choice.  You should have the - end of your LED strip connected to ground and the + end to the GPIO port defined in .env. [Here is a pinout diagram](https://www.raspberrypi.org/documentation/usage/gpio/) for reference. The number you define GPIO_PORT to should be the number that appears on the label `GPIO ##` in the first image, **not** the number within the circle.
 
 ```sh
-mv .env.example .env
+cp .env.example .env
 nano .env
 ```
 
@@ -58,23 +52,23 @@ If everything was installed correctly, you should be able to view the web interf
 
 You'll want to set up a systemd service for the project to run in the background and on startup.
 
-1. Open up the pismartled.service file with  your text editor of choice and verify that the working directory is correctly configured.
+1. Copy the pismartled.service file to the systemd services folder
 
 ```sh
-nano pismartled.service
+sudo cp pismartled.service /etc/systemd/system/pismartled.service
 ```
 
-2. Move the pismartled.service file to the systemd services folder
+2. Open up the file you copied with your text editor of choice and verify that the working directory is correctly configured.
 
 ```sh
-sudo mv pismartled.service /etc/systemd/system/pismartled.service
+sudo nano /etc/systemd/system/pismartled.service
 ```
 
 3. Start the service and enable automatic startup on boot
 
 ```sh
 sudo systemctl start pismartled
-sudo systemctl enable pismartled.service
+sudo systemctl enable pismartled
 ```
 
 If everything is working correctly, you should be able to view the web interface at http://*your-pi-ip*:*port*
